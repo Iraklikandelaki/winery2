@@ -1,6 +1,7 @@
 let object2, frameArea, floor, light, mouseMesh, root, bottle2;
-let INTERSECTED, INTERSECTED2, mouse, cube;
+let INTERSECTED, INTERSECTED2, mouse, cube, clock;
 let views = [];
+let pointLightfly1, pointLightfly2, pointLightfly3, pointLightfly4;
 // var mouse = {
 // 	x: 0,
 // 	y: 0
@@ -19,7 +20,7 @@ renderer.setSize( 1920, 973 )
 // renderer.setSize( window.innerWidth, window.innerHeight );
 // document.body.appendChild( renderer.domElement );
 
-
+clock = new THREE.Clock();
 
 
  raycaster = new THREE.Raycaster();
@@ -104,7 +105,7 @@ scene.add( cube2 );
 	// root.scale.set(1000, 1000, 1000) // scale here
       // update the Trackball controls to handle the new size
     //   controls.maxDistance = boxSize * 10;
-      controls.target.copy(boxCenter);
+    //   controls.target.copy(boxCenter);
 	//   controls.enableDamping = true;
 	//   controls.minPolarAngle = 0; // radians
 	// 	controls.maxPolarAngle = Math.PI / 2; // radians
@@ -152,10 +153,10 @@ scene.add( cube2 );
 
 		controls.maxDistance = boxSize * 10;
 		controls.target.copy(boxCenter);
-		controls.enableDamping = true;
+	
 		controls.minPolarAngle = (Math.PI / 2) - 0.3; // radians
 		  controls.maxPolarAngle = (Math.PI / 2) - 0.3; // radians
-		controls.dampingFactor = 0.6;
+		
 		controls.update();
 	  });
 
@@ -163,20 +164,20 @@ scene.add( cube2 );
   
 
  
-// 	const listener = new THREE.AudioListener();
-// 	camera.add( listener );
+	// const listener = new THREE.AudioListener();
+	// camera.add( listener );
 	
-// 	// create a global audio source
-// 	const sound = new THREE.Audio( listener );
+	// // create a global audio source
+	// const sound = new THREE.Audio( listener );
 	
-// 	// load a sound and set it as the Audio object's buffer
-// 	const audioLoader = new THREE.AudioLoader();
-// 	audioLoader.load( './sonata.mp3', function( buffer ) {
-// 		sound.setBuffer( buffer );
-// 		sound.setLoop( true );
-// 		sound.setVolume( 0.5 );
-// 		sound.play();
-// 	});
+	// // load a sound and set it as the Audio object's buffer
+	// const audioLoader = new THREE.AudioLoader();
+	// audioLoader.load( './sonata.mp3', function( buffer ) {
+	// 	sound.setBuffer( buffer );
+	// 	sound.setLoop( true );
+	// 	sound.setVolume( 0.5 );
+	// 	sound.play();
+	// });
 
 
 
@@ -254,6 +255,11 @@ document.addEventListener( 'mousemove', onDocumentMouseMove );
 
 
 
+
+pointLightfly1 = new THREE.PointLight( 0xff0040, 2, 650 );
+				pointLightfly1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xff0040 } ) ) );
+				scene.add( pointLightfly1 );
+
 var animate = function () {
 	requestAnimationFrame( animate );
 
@@ -267,7 +273,8 @@ var animate = function () {
 	// root.position.x = radius * Math.cos( angle );  
 	// root.position.z = radius * Math.sin( angle );
 	// angle += 0.1;
-	
+	controls.enableDamping = true;
+	controls.dampingFactor = 0.05;
 
 	controls.update();
 
@@ -275,6 +282,7 @@ var animate = function () {
   // Create a circle around the mouse and move it
   // The sphere has opacity 0
  
+
 
 
 	renderer.render(scene, camera);
