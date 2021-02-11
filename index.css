@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: none;
+}
+
+body {
+  background-color: #e6dddd;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+body span {
+  display: inline-block;
+}
+
+.canvas1-parent {
+  height: 973px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.canvas2-parent {
+  position: absolute;
+  top: 1400px;
+  left: 0;
+  width: 1350px;
+  height: 700px;
+}
+
+.canvas3-parent {
+  position: absolute;
+  top: 200px;
+  left: 50px;
+  width: 1350px;
+  height: 700px;
+}
+
+#canvas {
+  cursor: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 10;
+}
+
+#canvas2 {
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: none;
+  position: absolute;
+  z-index: 10;
+}
+
+#canvas3 {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: none;
+  position: absolute;
+  z-index: 10;
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+}
+
+.canvas-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1350px;
+  height: 700px;
+}
+
+.text-div {
+  position: absolute;
+  left: 10%;
+  top: 250px;
+  cursor: none;
+  z-index: 11;
+}
+
+.text-div h2 {
+  font-size: 50px;
+  font-family: 'Merriweather', serif;
+  pointer-events: none;
+  color: white;
+  cursor: none;
+}
+
+.text-div p {
+  position: relative;
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  margin-left: 80px;
+  color: white;
+  -webkit-transition: all ease .6s;
+  transition: all ease .6s;
+  z-index: 5;
+  width: 600px;
+  margin-top: 50px;
+  cursor: none;
+}
+
+#cursor {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid white;
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  cursor: none;
+  opacity: 0.5;
+  -webkit-transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.9s all;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.9s all;
+  z-index: 200;
+}
+
+.next-page {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  z-index: 200;
+  opacity: 0.3 !important;
+  z-index: 9;
+  pointer-events: none !important;
+}
+
+.next1 {
+  background-color: black;
+  height: 1973px;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
+.next2 {
+  margin-top: -20px;
+  height: 973px;
+  opacity: 1 !important;
+  pointer-events: all;
+  background-color: black;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.early-years {
+  top: 1400px;
+  left: 50%;
+}
+
+.link {
+  position: absolute;
+  color: white;
+  font-size: 50px;
+  text-decoration: underline;
+  cursor: none;
+  pointer-events: all;
+  z-index: 15;
+  top: 1500px;
+  left: 20%;
+}
+
+.link h2 {
+  pointer-events: all !important;
+}
+
+@media (max-width: 1919px) {
+  .canvas1-parent {
+    width: 100%;
+  }
+  .canvas2-parent {
+    height: 518px;
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1921px) {
+  .canvas1-parent {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .canvas2-parent {
+    height: 300px;
+    width: 578px;
+  }
+}
+
+@media (max-width: 768px) {
+  .canvas2-parent {
+    display: none;
+  }
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>Three.js Boilerplate</title>
+	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+	</head>
+	<body>
+
+
+		<div id="container" data-scroll-container>
+			<div id="cursor"></div>
+			<div class="text-div" data-scroll-section >
+				<h2  data-scroll data-scroll-speed="0.7">Ludwig Van Beethoven</h2>
+				<p data-scroll data-scroll-speed="-2">(17 December 1770 – 26 March 1827) was a German composer and pianist. Beethoven remains one of the most admired composers in the history of Western music; his works rank amongst the most performed of the classical music repertoire. His works span the transition from the classical period to the romantic era in classical music. His career has conventionally been divided into early, middle, and late periods. </p>
+			</div>
+	
+	
+			<div class="next-page next1" data-scroll-section></div>
+			<div class="next-page next2" data-scroll-section></div>
+
+	<!-- <div class="canvas-parent" data-scroll-section>
+			<canvas id="canvas"></canvas>
+		</div> -->
+
+	
+			<!-- <canvas id="canvas" data-scroll-section></canvas> -->
+			<canvas id="canvas2" data-scroll-section></canvas>
+		
+		
+			
+		</div>
+	
+		
+		<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js
+		"></script>
+		<script src="./assets/OrbitControls.js"></script>
+		<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js
+
+
+
+		"></script>
+		<!-- <script src="./examples/3d-obj-loader/assets/MTLLoader.js"></script> -->
+
+		<script src="./scripts2.js"></script>
+		<!-- <script src="./scripts2.js"></script> -->
+	
+	
+		<script>
+			const scroller = new LocomotiveScroll({
+			el: document.querySelector('[data-scroll-container]'),
+			smooth: true,
+			multiplier: 0.5,
+			lerp: 0.1
+		})
+
+        var cursorRect = cursor.getBoundingClientRect();
+
+        document.addEventListener("mousemove", followMouse, false);
+
+        function followMouse(e) {
+            var xPos = e.pageX - cursorRect.width / 2;
+            var yPos = e.pageY - cursorRect.height / 2;
+
+            // console.log(xPos + " " + yPos);
+
+            cursor.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+			// document.getElementById('cursor').style.left = curX - 30 + 'px';
+			// document.getElementById('cursor').style.top = curY - 30 + 'px';
+			
+        }
+		
+		// document.body.addEventListener("mousemove", function(e) {
+
+		// 	var curX = e.clientX;
+		// 	var curY = e.clientY;
+
+		// 	document.getElementById('mouse').style.left = curX - 10 + 'px';
+		// 	document.getElementById('mouse').style.top = curY - 10 + 'px';
+		// 	});
+
+			// window.setTimeout(() => {
+			// 	scroller.init()
+			// }, 200);
+
+		</script>
+	</body>
+</html>

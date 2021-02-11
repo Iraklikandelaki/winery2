@@ -1,0 +1,169 @@
+<html>
+	<head>
+		<title>Three.js Boilerplate</title>
+	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+	</head>
+	<body>
+
+		
+		<div id="container" data-scroll-container>
+			<div id="cursor"></div>
+			<div class="text-div" data-scroll-section >
+				<h2  data-scroll data-scroll-speed="0.7">CHATEAU LOREM</h2>
+				<!-- <p data-scroll data-scroll-speed="-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo iusto rem officia nisi repudiandae aliquid sed cumque maiores, sint facilis atque, sunt delectus consequuntur modi necessitatibus. </p> -->
+			</div>
+			<div class="text-div link" data-scroll-section >
+		<!-- <h2 class="deafness" data-scroll data-scroll-speed="0.7">Technology</h2> -->
+			</div>
+
+
+			<div class="text-div early-years" data-scroll-section >
+				<!-- <h2  data-scroll data-scroll-speed="0.7">History</h2> -->
+				<!-- <p data-scroll data-scroll-speed="-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet laboriosam incidunt ad ratione neque debitis? Est vitae alias error sunt reprehenderit eos sit, vel provident asperiores labore, ex consectetur molestias blanditiis quam, quis officia excepturi at omnis illum! Delectus, odit! Commodi, alias? Libero iure optio temporibus tenetur nihil itaque quis adipisci animi maxime amet. Ipsam odit illo rerum ab assumenda sint a. Earum itaque excepturi aliquam voluptate accusantium, illum repudiandae et provident esse fugiat deleniti ipsa nam possimus, dicta rem iusto culpa sapiente. Molestiae, beatae culpa. Eveniet sed aspernatur debitis? </p> -->
+			</div>
+	
+	
+			<div class="next-page next1" data-scroll-section></div>
+			<div class="next-page next2" data-scroll-section></div>
+
+	<!-- <div class="canvas-parent" data-scroll-section>
+			<canvas id="canvas"></canvas>
+		</div> -->
+
+		<div class="canvas1-parent">
+			<canvas id="canvas" data-scroll-section></canvas>
+		</div>
+		<div class="canvas2-parent">
+			<canvas id="canvas2" data-scroll-section></canvas>
+		
+		</div>
+		<!-- <div class="canvas3-parent">
+			<canvas id="canvas3" data-scroll-section></canvas>
+		
+		</div> -->
+			
+		</div>
+	
+		
+		<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js
+		"></script>
+		<script src="./assets/OrbitControls.js"></script>
+		<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js
+
+
+
+		"></script>
+		<!-- <script src="./examples/3d-obj-loader/assets/MTLLoader.js"></script> -->
+
+		<script src="./scripts.js"></script>
+		<script src="./scripts2.js"></script>
+		<script src="./scripts3.js"></script>
+	
+	
+		<script>
+			const scroller = new LocomotiveScroll({
+			el: document.querySelector('[data-scroll-container]'),
+			smooth: true,
+			multiplier: 0.5,
+			lerp: 0.1
+		})
+
+		let canvas1Parent = document.querySelector(".canvas1-parent");
+		let canvas2Parent = document.querySelector(".canvas2-parent");
+		let canvas1 = document.querySelector("#canvas");
+		let canvas2 = document.querySelector("#canvas2");
+		let heightResult, widthResult;
+		let heightResult2, widthResult2;
+		function calcRespCanvas(){
+			// heightResult = Math.round((canvas1.clientHeight/canvas1.clientWidth) * 100);
+			if (window.innerWidth >= 1024){
+				heightResult = Math.round(window.innerWidth / 1.97327852004);
+			console.log(heightResult)
+			canvas1Parent.style.height = (heightResult + 200) + 'px';
+			canvas1Parent.style.width = window.innerWidth + 'px';
+			}
+
+			else if (window.innerWidth >= 768){
+				heightResult = Math.round(window.innerWidth / 1.97327852004);
+			console.log(heightResult)
+			canvas1Parent.style.height = (heightResult + 350) + 'px';
+			canvas1Parent.style.width = window.innerWidth + 'px';
+			}
+			else if (window.innerWidth >= 414){
+				heightResult = Math.round(window.innerWidth / 1.97327852004);
+			console.log(heightResult)
+			canvas1Parent.style.height = (heightResult + 550) + 'px';
+			canvas1Parent.style.width = window.innerWidth + 'px';
+			}
+
+		
+			
+		}
+		// calcRespCanvas();
+		// // function calcRespCanvas2(){
+		// // 	// heightResult = Math.round((canvas2.clientHeight/canvas2.clientWidth) * 100);
+		// // 	heightResult2 = Math.round(window.innerWidth / 1.97327852004);
+	
+		// // 	canvas2Parent.style.height = heightResult2 + 'px';
+		// // 	canvas2Parent.style.width = window.innerWidth + 'px';
+		
+			
+		// // }
+		// calcRespCanvas2();
+
+		function _waitLoad(){
+			document.querySelector("#canvas").style.opacity = "0";
+
+			setTimeout(() => {
+				document.querySelector("#canvas").style.opacity = "1";
+			
+
+			}, 2050);
+
+		
+		}
+		_waitLoad();
+
+        var cursorRect = cursor.getBoundingClientRect();
+
+        document.addEventListener("mousemove", followMouse, false);
+
+        function followMouse(e) {
+            var xPos = e.pageX - cursorRect.width / 2;
+            var yPos = e.pageY - cursorRect.height / 2;
+
+            // console.log(xPos + " " + yPos);
+
+            cursor.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+			// document.getElementById('cursor').style.left = curX - 30 + 'px';
+			// document.getElementById('cursor').style.top = curY - 30 + 'px';
+			
+        }
+
+
+	// let deafness = document.querySelector(".deafness");
+	// console.log(deafness)
+
+	// deafness.addEventListener("click", () => {
+	// 	console.log(deafness)
+	// })
+		// document.body.addEventListener("mousemove", function(e) {
+
+		// 	var curX = e.clientX;
+		// 	var curY = e.clientY;
+
+		// 	document.getElementById('mouse').style.left = curX - 10 + 'px';
+		// 	document.getElementById('mouse').style.top = curY - 10 + 'px';
+		// 	});
+
+			// window.setTimeout(() => {
+			// 	scroller.init()
+			// }, 200);
+
+		</script>
+	</body>
+</html>
